@@ -2,6 +2,14 @@
 import { audit } from './core.js';
 
 const args = process.argv.slice(2);
+if (args.includes('--help') || args.includes('-h')) {
+  console.log('Usage: envproof [directory] [--json] [--no-fail]\n\nCompare environment variables used in code with .env.example.');
+  process.exit(0);
+}
+if (args.includes('--version') || args.includes('-v')) {
+  console.log('0.1.0');
+  process.exit(0);
+}
 const json = args.includes('--json');
 const noFail = args.includes('--no-fail');
 const root = args.find(arg => !arg.startsWith('-')) || '.';
