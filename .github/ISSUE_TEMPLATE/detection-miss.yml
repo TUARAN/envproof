@@ -1,0 +1,37 @@
+name: Environment-variable detection miss
+description: Teach envproof a real access pattern with a minimal, secret-free fixture.
+title: "[fixture] "
+labels: [fixture, needs-triage]
+body:
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language or framework
+      options: [JavaScript / TypeScript, Python, Go, Rust, Java / Kotlin, Ruby, PHP, Shell / YAML, Other]
+    validations: { required: true }
+  - type: textarea
+    id: snippet
+    attributes:
+      label: Minimal code snippet
+      description: Use a fake variable name and never paste its value.
+      render: text
+    validations: { required: true }
+  - type: input
+    id: expected
+    attributes:
+      label: Expected variable name
+      placeholder: EXAMPLE_API_KEY
+    validations: { required: true }
+  - type: dropdown
+    id: result
+    attributes:
+      label: Current result
+      options: [Missed variable, False positive, Wrong source location, Other]
+    validations: { required: true }
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Secret check
+      options:
+        - label: This fixture contains names only and no real secret values.
+          required: true

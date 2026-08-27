@@ -26,6 +26,10 @@ npx github:TUARAN/envproof --no-fail   # audit without failing
 
 Recognizes common JavaScript/TypeScript, Python, Go, Rust, Java, Deno and shell access patterns. It never reads `.env` values, never uploads code, and has zero dependencies.
 
+## How it evolves
+
+Found a missed access pattern or false positive? Submit a secret-free **Environment-variable detection miss** issue. Each accepted example becomes a synthetic regression fixture, runs weekly across supported Node versions, and feeds a human-reviewed release PR. See [MAINTENANCE.md](MAINTENANCE.md).
+
 ## 中文
 
 `envproof` 扫描代码里真实使用的环境变量，对比 `.env.example`，找出“代码需要但示例没写”和“示例还写着但代码已不用”的变量。特别适合在 CI 中防止新成员按 README 配置后仍然跑不起来。
